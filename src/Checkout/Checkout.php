@@ -26,6 +26,7 @@ class Checkout extends Functions
 			$this->setDataSend($this->makeJson($invoice));
 			$this->setMethodSend("put-invoice/".$this->getToken());
 			$this->curlSend();
+
 			var_dump($this->getReturnData());
 
 		}else{
