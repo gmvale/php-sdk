@@ -1,0 +1,28 @@
+{
+  "name": "Rocket-System/php-sdk",
+  "description": "PHP SDK Module for Rocket Systems",
+  "license": "GNU GPL v3",
+  "keywords": [
+    "Rocket",
+    "Rocket Pays",
+    "Rocket e-Wallet"
+    "PHP"
+  ],
+  "authors": [
+    {
+      "name": "Daniel Chaves",
+      "email": "daniel@danielchaves.com.br"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "ext-curl": "*",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "1.*"
+  },
+  "autoload": {
+    "psr-4": {"Rocket\\": "src/"}
+  }
+}
