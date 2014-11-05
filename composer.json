@@ -5,7 +5,7 @@
   "keywords": [
     "Rocket",
     "Rocket Pays",
-    "Rocket e-Wallet"
+    "Rocket e-Wallet",
     "PHP"
   ],
   "authors": [
@@ -18,9 +18,6 @@
     "php": ">=5.4",
     "ext-curl": "*",
     "ext-json": "*"
-  },
-  "require-dev": {
-    "squizlabs/php_codesniffer": "1.*"
   },
   "autoload": {
     "psr-4": {"Rocket\\": "src/"}
