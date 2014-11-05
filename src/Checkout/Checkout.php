@@ -23,6 +23,11 @@ class Checkout extends Functions
 	{
 		if($invoice instanceof \Rocket\Invoice\Invoice){
 
+			$this->setDataSend($this->makeJson($invoice));
+			$this->setMethodSend("put-invoice/".$this->getToken());
+			$this->curlSend();
+			var_dump($this->getReturnData());
+
 		}else{
 			throw new RocketException("Invalid Ivoice Data");
 		}
