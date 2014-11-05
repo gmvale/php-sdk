@@ -25,21 +25,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Checkout.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Checkout.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Checkout/Checkout.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7356948" vertical-offset="150" max-vertical-offset="735">
-              <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+            <state vertical-scroll-proportion="-2.5" vertical-offset="90" max-vertical-offset="735">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Invoice.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Invoice.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Invoice/Invoice.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.2040815" vertical-offset="30" max-vertical-offset="3180">
-              <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.7368421" vertical-offset="2643" max-vertical-offset="3180">
+              <caret line="193" column="47" selection-start-line="193" selection-start-column="47" selection-end-line="193" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -146,6 +146,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SDK" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SDK" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Checkout" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -276,18 +294,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Invoice/Invoice.php">
+    <entry file="file://$PROJECT_DIR$/src/Checkout/Checkout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2040815" vertical-offset="30" max-vertical-offset="3180">
-          <caret line="19" column="10" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="10" />
+        <state vertical-scroll-proportion="-2.5" vertical-offset="90" max-vertical-offset="735">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Checkout/Checkout.php">
+    <entry file="file://$PROJECT_DIR$/src/Invoice/Invoice.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7356948" vertical-offset="150" max-vertical-offset="735">
-          <caret line="29" column="45" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.7368421" vertical-offset="2643" max-vertical-offset="3180">
+          <caret line="193" column="47" selection-start-line="193" selection-start-column="47" selection-end-line="193" selection-end-column="47" />
           <folding />
         </state>
       </provider>

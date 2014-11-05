@@ -13,8 +13,8 @@ class Invoice
     public $invoiceCurrency = 'USD';
     public $customerName;
     public $customerEmail;
-    public $invoiceDiscounts;
-    public $invoiceDeliveryFee;
+    public $invoiceDiscounts = 0.00;
+    public $invoiceDeliveryFee = 0.00;
     public $successUrl;
     public $cancelUrl;
     public $invoiceProducts = array();
@@ -191,7 +191,7 @@ class Invoice
         if(!$product instanceof InvoiceProduct)
             throw new RocketException("Invalid Product Class");
 
-        $products = $this->getOrderProducts();
+        $products = $this->getInvoiceProducts();
 
         $newProducts = array_push($products,$product);
 

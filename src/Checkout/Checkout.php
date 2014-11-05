@@ -9,7 +9,7 @@ class Checkout extends Functions
 
 	public function __construct($token,$sanbox = false,$developer=false)
 	{
-		$this->setToken(token);
+		$this->setToken($token);
 		$this->prepareSDK();
 
 		if($sanbox)
