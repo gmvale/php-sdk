@@ -5,13 +5,13 @@ namespace Rocket\Invoice;
 class InvoiceProduct
 {
 
-    public $name;
-    public $description;
-    public $unityPrice;
-    public $quantity;
+    public $name = '';
+    public $description = '';
+    public $unityPrice = 0.00;
+    public $quantity = 0.00;
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -19,7 +19,7 @@ class InvoiceProduct
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -27,7 +27,7 @@ class InvoiceProduct
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getDescription()
     {
@@ -35,7 +35,7 @@ class InvoiceProduct
     }
 
     /**
-     * @param mixed $description
+     * @param string $description
      */
     public function setDescription($description)
     {
@@ -43,7 +43,7 @@ class InvoiceProduct
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getUnityPrice()
     {
@@ -51,7 +51,7 @@ class InvoiceProduct
     }
 
     /**
-     * @param mixed $unityPrice
+     * @param float $unityPrice
      */
     public function setUnityPrice($unityPrice)
     {
@@ -59,7 +59,7 @@ class InvoiceProduct
     }
 
     /**
-     * @return mixed
+     * @return float
      */
     public function getQuantity()
     {
@@ -67,12 +67,14 @@ class InvoiceProduct
     }
 
     /**
-     * @param mixed $quantity
+     * @param float $quantity
      */
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
     }
+
+
 
 
 	

@@ -61,9 +61,8 @@ class Functions
 		return $this->token;
 	}
 
-	protected function setDataSend(array $data)
+	protected function setDataSend($data)
 	{
-		if(is_array($data))
 			$this->dataSend = $data;
 	}
 
@@ -91,17 +90,22 @@ class Functions
 		}
 	}
 
-	protected function prepareSDK()
+	protected function jsonArray($json)
+	{
+		return json_decode($json);
+	}
+
+	protected function prepareSDKCheckout()
 	{
 		$this->setResourceUrl('http://ewallet.rocketpays.com');
 	}
 
-	protected function prepareSDKSandbox()
+	protected function prepareSDKSandboxCheckout()
 	{
 		$this->setResourceUrl('http://ewallet.sandbox.rocketpays.com');
 	}
 
-	protected function prepareSDKDeveloper()
+	protected function prepareSDKDeveloperCheckout()
 	{
 		$this->setResourceUrl('http://ewallet.rocketpays.dev');
 	}
@@ -118,11 +122,8 @@ class Functions
 
 		$curl = curl_init($this->getResourceUrl() . $this->getMethodSend());
 		
-		$datasend = '';
-		foreach ($this->getDataSend() as $key => $value) {
-		    $datasend .= $key.'='.$value.'&';
-		}
-		rtrim($datasend, '&');
+		$datasend = $this->getDataSend();
+
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		curl_setopt($curl, CURLOPT_POST, true);
 		curl_setopt($curl, CURLOPT_POSTFIELDS, $datasend);

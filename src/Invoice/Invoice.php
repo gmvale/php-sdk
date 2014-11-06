@@ -193,7 +193,8 @@ class Invoice
 
         $products = $this->getInvoiceProducts();
 
-        $newProducts = array_push($products,$product);
+        $newProducts = array_merge($products,array($product));
+
 
         $this->setInvoiceProducts($newProducts);
 

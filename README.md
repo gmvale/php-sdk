@@ -1,8 +1,7 @@
 Rocket php-sdk
 =================
-[![Build Status](https://travis-ci.org/xPayCard/php-sdk.svg)](https://travis-ci.org/xPayCard/php-sdk) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/xPayCard/php-sdk/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/xPayCard/php-sdk/?branch=master) [![Latest Stable Version](https://poser.pugx.org/xpaycard/php-sdk/v/stable.svg)](https://packagist.org/packages/xpaycard/php-sdk) [![Total Downloads](https://poser.pugx.org/xpaycard/php-sdk/downloads.svg)](https://packagist.org/packages/xpaycard/php-sdk) [![Latest Unstable Version](https://poser.pugx.org/xpaycard/php-sdk/v/unstable.svg)](https://packagist.org/packages/xpaycard/php-sdk) [![License](https://poser.pugx.org/xpaycard/php-sdk/license.svg)](https://packagist.org/packages/xpaycard/php-sdk) 
-
-PHP SDK to Rocket API, with this SDK you can create orders and retrivie order status from out checkout
+ 
+PHP SDK to Rocket API, with this SDK you can create invoices and retrieve invoice status from out Simple Checkout System, you can make API calls when your plan have it.
 
 Instalation
 -----------
@@ -23,11 +22,11 @@ $ php composer.phar install
 
     ```json
     "require": {
-        "xpaycard/php-sdk": "dev-master"
+        "rocket-system/php-sdk": "dev-master"
     }
     ```
 
-2. Now tell composer to download xPayCard php-sdk by running the command:
+2. Now tell composer to download Rocket php-sdk by running the command:
 
     ```bash
     $ php composer.phar update
@@ -40,43 +39,41 @@ $ php composer.phar install
 ``` php
 <?php
 
-use xPaycard\Core\Order;
-use xPaycard\Core\Product;
-use xPaycard\Checkou\Checkout;
+use Rocket\Checkout\Checkout;
+use Rocket\Invoice\Invoice;
+use Rocket\Invoice\InvoiceProduct;
 
-    $order = new Order();
-    $order->setCustomerName('Full Name');
-    $order->setCustomerEmail('it@xpaycard.com');
-    $order->setOrderNumber('0192003');
-    $order->setOrderDescription("Test Sale");
-    $order->setOrderCurrency('USD');
-    $order->setCancelUrl('http://example.com');
-    $order->setDenyUrl('http://example.com');
-    $order->setSuccessUrl('http://example.com');
-    $order->setOrderDeliveryFee(20);
-    $order->setOrderDiscounts(10);
+    $checkout = new Checkout("INFORM YOU SIMPLE CHECKOUT KEY");
+    
+    $invoice = new Invoice();
+    $invoice->setInvoiceNumber(0001);
+    $invoice->setInvoiceDescription("Test Description");
+    $invoice->setCancelUrl("http://example.com/cancel");
+    $invoice->setSuccessUrl("http://example.com/success");
+    $invoice->setCustomerEmail("john@doe.com");
+    $invoice->setCustomerName("John Doe");
 
-    $product = new Product();
+    $product = new InvoiceProduct();
     $product->setName("Test Product");
     $product->setDescription("Test Product Description");
-    $product->setUnityPrice(10.00);
     $product->setQuantity(10);
-    $order->addProduct($product);
+    $product->setUnityPrice(9.90);
 
-    $product1 = new Product();
-    $product1->setName("Test Product");
-    $product1->setDescription("Test Product Description");
-    $product1->setUnityPrice(10.00);
-    $product1->setQuantity(10);
-    $order->addProduct($product);
+    $product2 = new InvoiceProduct();
+    $product2->setName("Test Product");
+    $product2->setDescription("Test Product Description");
+    $product2->setQuantity(1);
+    $product2->setUnityPrice(1000.00);
 
-    $Checkout = new Checkout($yourToken); // You can request your token at https://merchant.xpaycard.com
-    $Checkout->addOrder($order);
-    $Checkout->send();
+    $invoice->addProducts($product);
 
-    $redirectUrl =  $Checkout->getReturnUrl();
-    $orderCode =  $Checkout->getOrderCode();
-    $responseArray = $Checkout->responseArray();
+    $invoice->addProducts($product2);
+
+    $checkout->createInvoice($invoice);
+
+    $returnUrl = $checkout->getPayInvoiceUrl();
+    $invoiceUniqueCode = $checkout->getInvoiceToken();
+    $status = $checkout->getInvoiceStatus();
     
 ```
 
@@ -87,19 +84,10 @@ use xPaycard\Checkou\Checkout;
 ``` php
 <?php
 
-use xPaycard\Core\Order;
-use xPaycard\Core\Product;
-use xPaycard\Checkou\Checkout;
+use Rocket\Checkout\Checkout;
 
-    
-
-    $Checkout = new Checkout($yourToken); // You can request your token at https://merchant.xpaycard.com
-    $queryData = $Checkout->queryOrder($order);
-
-
+    $checkout = new Checkout("INFORM YOU SIMPLE CHECKOUT KEY");
+    $invoice = $checkout->queryInvoice("INVOICE UNIQUE ID");
+    $status = $checkout->getInvoiceStatus();
     
 ```
-
-    
-
-
