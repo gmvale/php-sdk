@@ -2,7 +2,6 @@
 
 namespace Rocket\Core;
 
-
 /**
  * Functions
  *
@@ -17,130 +16,183 @@ namespace Rocket\Core;
  * @link       http://www.rocketpays.com
  */
 
-
 class Functions
 {
 
-	protected $resourceUrl;
+    protected $resourceUrl;
 
-	protected $token;
+    protected $token;
 
-	protected $dataSend;
+    protected $dataSend;
 
-	protected $returnData;
+    protected $returnData;
 
-	protected $methodSend;
-
-	protected function setMethodSend($method)
-	{
-		$this->methodSend = "/$method";
-	}
-
-	protected function getMethodSend()
-	{
-		return $this->methodSend;
-	}
-
-	protected function setResourceUrl($url)
-	{
-		$this->resourceUrl = $url;
-	}
-
-	protected function getResourceUrl()
-	{
-		return $this->resourceUrl;
-	}
-
-	protected function setToken($token)
-	{
-		$this->token = $token;
-	}
-
-	protected function getToken()
-	{
-		return $this->token;
-	}
-
-	protected function setDataSend($data)
-	{
-			$this->dataSend = $data;
-	}
-
-	protected function getDataSend()
-	{
-		return $this->dataSend;
-	}
-
-	protected function setReturnData($data)
-	{
-		$this->returnData = $data;
-	}
-
-	protected function getReturnData()
-	{
-		return $this->returnData;
-	}
-
-	protected function makeJson(array $data)
-	{
-		if(is_array($data)){
-			return json_encode($data);
-		}else{
-			throw new RocketException("Please provide a array data");
-		}
-	}
-
-	protected function jsonArray($json)
-	{
-		return json_decode($json);
-	}
-
-	protected function prepareSDKCheckout()
-	{
-		$this->setResourceUrl('http://ewallet.rocketpays.com');
-	}
-
-	protected function prepareSDKSandboxCheckout()
-	{
-		$this->setResourceUrl('http://ewallet.sandbox.rocketpays.com');
-	}
-
-	protected function prepareSDKDeveloperCheckout()
-	{
-		$this->setResourceUrl('http://ewallet.rocketpays.dev');
-	}
+    protected $methodSend;
 
 
-	protected function sendRequest($to)
-	{
+    /**
+     * @param $method
+     */
+    protected function setMethodSend($method)
+    {
+        $this->methodSend = "/$method";
+    }
 
-	}
+    /**
+     * @return mixed
+     */
+    protected function getMethodSend()
+    {
+        return $this->methodSend;
+    }
 
+    /**
+     * @param $url
+     */
+    protected function setResourceUrl($url)
+    {
+        $this->resourceUrl = $url;
+    }
 
-	protected function curlSend()
-	{
+    /**
+     * @return mixed
+     */
+    protected function getResourceUrl()
+    {
+        return $this->resourceUrl;
+    }
 
-		$curl = curl_init($this->getResourceUrl() . $this->getMethodSend());
-		
-		$datasend = $this->getDataSend();
+    /**
+     * @param $token
+     */
+    protected function setToken($token)
+    {
+        $this->token = $token;
+    }
 
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_POST, true);
-		curl_setopt($curl, CURLOPT_POSTFIELDS, $datasend);
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-		curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-		curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+    /**
+     * @return mixed
+     */
+    protected function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param $data
+     */
+    protected function setDataSend($data)
+    {
+            $this->dataSend = $data;
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getDataSend()
+    {
+        return $this->dataSend;
+    }
+
+    /**
+     * @param $data
+     */
+    protected function setReturnData($data)
+    {
+        $this->returnData = $data;
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getReturnData()
+    {
+        return $this->returnData;
+    }
+
+    /**
+     * @param $data
+     * @return string
+     * @throws RocketException
+     */
+    protected function makeJson($data)
+    {
+        if (is_array($data)) {
+            return json_encode($data);
+        } else {
+            throw new RocketException("Please provide a array data");
+        }
+    }
+
+    /**
+     * @param $json
+     * @return array
+     */
+    protected function jsonArray($json)
+    {
+        return json_decode($json);
+    }
+
+    /**
+     *  Prepare the SDK
+     */
+    protected function prepareSDKCheckout()
+    {
+        $this->setResourceUrl('http://ewallet.rocketpays.com');
+    }
+
+    /**
+     *  Prepare the SDK
+     */
+    protected function prepareSDKSandboxCheckout()
+    {
+        $this->setResourceUrl('http://ewallet.sandbox.rocketpays.com');
+    }
+
+    /**
+     *  Prepare the SDK
+     */
+    protected function prepareSDKDeveloperCheckout()
+    {
+        $this->setResourceUrl('http://ewallet.rocketpays.dev');
+    }
+
+    /**
+     * @param $to
+     * @return bool
+     */
+    protected function sendRequest($to)
+    {
+        return true;
+
+    }
+
+    /**
+     * @return bool
+     */
+    protected function curlSend()
+    {
+
+        $curl = curl_init($this->getResourceUrl() . $this->getMethodSend());
+
+        $datasend = $this->getDataSend();
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POST, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $datasend);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             "token: " . $this->getToken(),
         ));
-		$curl_response = curl_exec($curl);
-		curl_close($curl);
-
-		$this->setReturnData($curl_response);
+        $curl_response = curl_exec($curl);
+        curl_close($curl);
 
 
-		return true;
-	}
+        $this->setReturnData($curl_response);
 
-	
+        return true;
+    }
+
 }

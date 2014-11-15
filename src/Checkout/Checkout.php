@@ -7,140 +7,145 @@ use Rocket\Core\RocketException;
 class Checkout extends Functions
 {
 
-	public $invoiceToken;
-	public $payInvoiceUrl;
-	public $clientPass;
-	public $invoiceStatus;
+    public $invoiceToken;
+    public $payInvoiceUrl;
+    public $clientPass;
+    public $invoiceStatus;
 
-	/**
+    /**
 	 * @param $token
 	 * @param bool $sandbox
+	 * @param bool $developer
+	 * @throws RocketException
 	 */
 
-	public function __construct($token,$sandbox = false,$developer=false)
-	{
-		$this->setToken($token);
-		$this->prepareSDKCheckout();
+    public function __construct($token,$sandbox = false,$developer=false)
+    {
 
-		if($sandbox)
-			$this->prepareSDKSandboxCheckout();
-		if($developer)
-			$this->prepareSDKDeveloperCheckout();
+        if (!$token) {
+            throw new RocketException("Please Provide a Valid Token");
+        }
 
-	}
+        $this->setToken($token);
+        $this->prepareSDKCheckout();
 
-	public function createInvoice(\Rocket\Invoice\Invoice $invoice)
-	{
-		if($invoice instanceof \Rocket\Invoice\Invoice){
+        if($sandbox)
+            $this->prepareSDKSandboxCheckout();
+        if($developer)
+            $this->prepareSDKDeveloperCheckout();
 
-			$this->setDataSend($this->makeJson(get_object_vars($invoice)));
-			$this->setMethodSend("put-invoice/".$this->getToken());
-			$this->curlSend();
+    }
 
+    /**
+     * @param \Rocket\Invoice\Invoice $invoice
+     * @return mixed
+     * @throws RocketException
+     */
+    public function createInvoice($invoice)
+    {
+        if ($invoice instanceof \Rocket\Invoice\Invoice) {
 
-			$retorno = $this->jsonArray($this->getReturnData());
+            $this->setDataSend($this->makeJson(get_object_vars($invoice)));
+            $this->setMethodSend("put-invoice/".$this->getToken());
+            $this->curlSend();
 
-			if(!$retorno->success)
-				throw new RocketException($retorno->message);
+            $retorno = $this->jsonArray($this->getReturnData());
 
+            if(!$retorno->success)
+                throw new RocketException($retorno->message);
 
-			$this->invoiceToken = $retorno->invoiceCode;
+            $this->setInvoiceToken($retorno->invoiceCode);
 
-			$this->payInvoiceUrl = $retorno->returnUrl;
+            $this->setPayInvoiceUrl($retorno->returnUrl);
 
-			$this->clientPass = false;
+            $this->setClientPass(false);
 
-			$this->invoiceStatus = $retorno->invoiceStatus;
+            $this->setInvoiceStatus($retorno->invoiceStatus);
 
-			if($retorno->user->new)
-				$this->clientPass = $retorno->user->userPassword;
+            if(isset($retorno->user->new))
+                $this->clientPass = $retorno->user->userPassword;
 
-			return $retorno;
+            return $retorno;
 
-		}else{
-			throw new RocketException("Invalid Invoice Data");
-		}
+        } else {
+            throw new RocketException("Invalid Invoice Data");
+        }
 
-	}
+    }
 
-	public function ckeckInvoice($invoice)
-	{
+    /**
+     * @param $invoice
+     * @return bool
+     */
+    public function ckeckInvoice($invoice)
+    {
+        return true;
 
-	}
+    }
 
-	/**
+    /**
 	 * @return mixed
 	 */
-	public function getInvoiceToken()
-	{
-		return $this->invoiceToken;
-	}
+    public function getInvoiceToken()
+    {
+        return $this->invoiceToken;
+    }
 
-	/**
+    /**
 	 * @param mixed $invoiceToken
 	 */
-	public function setInvoiceToken($invoiceToken)
-	{
-		$this->invoiceToken = $invoiceToken;
-	}
+    public function setInvoiceToken($invoiceToken)
+    {
+        $this->invoiceToken = $invoiceToken;
+    }
 
-	/**
+    /**
 	 * @return mixed
 	 */
-	public function getPayInvoiceUrl()
-	{
-		return $this->payInvoiceUrl;
-	}
+    public function getPayInvoiceUrl()
+    {
+        return $this->payInvoiceUrl;
+    }
 
-	/**
+    /**
 	 * @param mixed $payInvoiceUrl
 	 */
-	public function setPayInvoiceUrl($payInvoiceUrl)
-	{
-		$this->payInvoiceUrl = $payInvoiceUrl;
-	}
+    public function setPayInvoiceUrl($payInvoiceUrl)
+    {
+        $this->payInvoiceUrl = $payInvoiceUrl;
+    }
 
-	/**
+    /**
 	 * @return mixed
 	 */
-	public function getClientPass()
-	{
-		return $this->clientPass;
-	}
+    public function getClientPass()
+    {
+        return $this->clientPass;
+    }
 
-	/**
+    /**
 	 * @param mixed $clientPass
 	 */
-	public function setClientPass($clientPass)
-	{
-		$this->clientPass = $clientPass;
-	}
+    public function setClientPass($clientPass)
+    {
+        $this->clientPass = $clientPass;
+    }
 
-	/**
+    /**
 	 * @return mixed
 	 */
-	public function getInvoiceStatus()
-	{
-		return $this->invoiceStatus;
-	}
+    public function getInvoiceStatus()
+    {
+        return $this->invoiceStatus;
+    }
 
-	/**
+    /**
 	 * @param mixed $invoiceStatus
 	 */
-	public function setInvoiceStatus($invoiceStatus)
-	{
-		$this->invoiceStatus = $invoiceStatus;
-	}
+    public function setInvoiceStatus($invoiceStatus)
+    {
+        $this->invoiceStatus = $invoiceStatus;
+    }
 
 
-
-	public function redirectUser()
-	{
-		$redirect = $this->getPayInvoiceUrl();
-
-		header("location:$redirect");
-	}
-
-
-	
 }

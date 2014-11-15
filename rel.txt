@@ -1,0 +1,336 @@
+ERROR: The file "/src" does not exist.
+
+Usage: phpcs [-nwlsaepvi] [-d key[=value]]
+    [--report=<report>] [--report-file=<reportfile>] [--report-<report>=<reportfile>] ...
+    [--report-width=<reportWidth>] [--generator=<generator>] [--tab-width=<tabWidth>]
+    [--severity=<severity>] [--error-severity=<severity>] [--warning-severity=<severity>]
+    [--runtime-set key value] [--config-set key value] [--config-delete key] [--config-show]
+    [--standard=<standard>] [--sniffs=<sniffs>] [--encoding=<encoding>]
+    [--extensions=<extensions>] [--ignore=<patterns>] <file> ...
+                      Set runtime value (see --config-set) 
+        -n            Do not print warnings (shortcut for --warning-severity=0)
+        -w            Print both warnings and errors (on by default)
+        -l            Local directory only, no recursion
+        -s            Show sniff codes in all reports
+        -a            Run interactively
+        -e            Explain a standard by showing the sniffs it includes
+        -p            Show progress of the run
+        -v[v][v]      Print verbose output
+        -i            Show a list of installed coding standards
+        -d            Set the [key] php.ini value to [value] or [true] if value is omitted
+        --help        Print this help message
+        --version     Print version information
+        <file>        One or more files and/or directories to check
+        <extensions>  A comma separated list of file extensions to check
+                      (only valid if checking a directory)
+        <patterns>    A comma separated list of patterns to ignore files and directories
+        <encoding>    The encoding of the files being checked (default is iso-8859-1)
+        <sniffs>      A comma separated list of sniff codes to limit the check to
+                      (all sniffs must be part of the specified standard)
+        <severity>    The minimum severity required to display an error or warning
+        <standard>    The name or path of the coding standard to use
+        <tabWidth>    The number of spaces each tab represents
+        <generator>   The name of a doc generator to use
+                      (forces doc generation instead of checking)
+        <report>      Print either the "full", "xml", "checkstyle", "csv", "json"
+                      "emacs", "source", "summary", "svnblame", "gitblame", "hgblame" or
+                      "notifysend" report
+                      (the "full" report is printed by default)
+        <reportfile>  Write the report to the specified file path
+        <reportWidth> How many columns wide screen reports should be printed
+
+FILE: /Users/daniel/Projects/RocketPays/SDK/src/autoload.php
+--------------------------------------------------------------------------------
+FOUND 4 ERROR(S) AFFECTING 4 LINE(S)
+--------------------------------------------------------------------------------
+  2 | ERROR | Missing file doc comment
+  3 | ERROR | Opening parenthesis of a multi-line function call must be the
+    |       | last content on the line
+ 28 | ERROR | File is being conditionally included; use "include" instead
+ 30 | ERROR | Closing parenthesis of a multi-line function call must be on a
+    |       | line by itself
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/daniel/Projects/RocketPays/SDK/src/Checkout/Checkout.php
+--------------------------------------------------------------------------------
+FOUND 56 ERROR(S) AND 4 WARNING(S) AFFECTING 30 LINE(S)
+--------------------------------------------------------------------------------
+   2 | ERROR   | Missing file doc comment
+   7 | ERROR   | Missing class doc comment
+  16 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  16 | ERROR   | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |         | name $token at position 1
+  16 | ERROR   | Missing parameter name at position 1
+  16 | ERROR   | Missing comment for param "[ UNKNOWN ]" at position 1
+  16 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  17 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  17 | ERROR   | The variable names for parameters UNKNOWN (1) and $sandbox (2)
+     |         | do not align
+  17 | ERROR   | Missing comment for param "$sandbox" at position 2
+  18 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  18 | ERROR   | Last parameter comment requires a blank newline after it
+  18 | ERROR   | Missing comment for param "$developer" at position 3
+  19 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  20 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  32 | WARNING | Inline control structures are discouraged
+  34 | WARNING | Inline control structures are discouraged
+  40 | ERROR   | Last parameter comment requires a blank newline after it
+  40 | ERROR   | Missing comment for param "$invoice" at position 1
+  40 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  56 | WARNING | Inline control structures are discouraged
+  67 | WARNING | Inline control structures are discouraged
+  79 | ERROR   | Last parameter comment requires a blank newline after it
+  79 | ERROR   | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |         | name $invoice at position 1
+  79 | ERROR   | Missing parameter name at position 1
+  79 | ERROR   | Missing comment for param "[ UNKNOWN ]" at position 1
+  79 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  89 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  89 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  90 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  97 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  97 | ERROR   | Missing comment for param "$invoiceToken" at position 1
+  97 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  98 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+  98 | ERROR   | Missing @return tag in function comment
+ 105 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 105 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 106 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 113 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 113 | ERROR   | Missing comment for param "$payInvoiceUrl" at position 1
+ 113 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 114 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 114 | ERROR   | Missing @return tag in function comment
+ 121 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 121 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 122 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 129 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 129 | ERROR   | Missing comment for param "$clientPass" at position 1
+ 129 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 130 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 130 | ERROR   | Missing @return tag in function comment
+ 137 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 137 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 138 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 145 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 145 | ERROR   | Missing comment for param "$invoiceStatus" at position 1
+ 145 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 146 | ERROR   | Line indented incorrectly; expected at least 4 spaces, found 2
+ 146 | ERROR   | Missing @return tag in function comment
+ 155 | ERROR   | Missing @return tag in function comment
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/daniel/Projects/RocketPays/SDK/src/Core/Functions.php
+--------------------------------------------------------------------------------
+FOUND 53 ERROR(S) AFFECTING 26 LINE(S)
+--------------------------------------------------------------------------------
+   2 | ERROR | Missing file doc comment
+  19 | ERROR | Missing class doc comment
+  34 | ERROR | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |       | name $method at position 1
+  34 | ERROR | Missing parameter name at position 1
+  34 | ERROR | Missing comment for param "[ UNKNOWN ]" at position 1
+  34 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  35 | ERROR | Missing @return tag in function comment
+  42 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  50 | ERROR | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |       | name $url at position 1
+  50 | ERROR | Missing parameter name at position 1
+  50 | ERROR | Missing comment for param "[ UNKNOWN ]" at position 1
+  50 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  51 | ERROR | Missing @return tag in function comment
+  58 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  66 | ERROR | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |       | name $token at position 1
+  66 | ERROR | Missing parameter name at position 1
+  66 | ERROR | Missing comment for param "[ UNKNOWN ]" at position 1
+  66 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  67 | ERROR | Missing @return tag in function comment
+  74 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  82 | ERROR | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |       | name $data at position 1
+  82 | ERROR | Missing parameter name at position 1
+  82 | ERROR | Missing comment for param "[ UNKNOWN ]" at position 1
+  82 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  83 | ERROR | Missing @return tag in function comment
+  90 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  98 | ERROR | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |       | name $data at position 1
+  98 | ERROR | Missing parameter name at position 1
+  98 | ERROR | Missing comment for param "[ UNKNOWN ]" at position 1
+  98 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+  99 | ERROR | Missing @return tag in function comment
+ 106 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+ 114 | ERROR | Last parameter comment requires a blank newline after it
+ 114 | ERROR | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |       | name $data at position 1
+ 114 | ERROR | Missing parameter name at position 1
+ 114 | ERROR | Missing comment for param "[ UNKNOWN ]" at position 1
+ 114 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+ 128 | ERROR | Last parameter comment requires a blank newline after it
+ 128 | ERROR | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |       | name $json at position 1
+ 128 | ERROR | Missing parameter name at position 1
+ 128 | ERROR | Missing comment for param "[ UNKNOWN ]" at position 1
+ 128 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+ 138 | ERROR | Missing @return tag in function comment
+ 146 | ERROR | Missing @return tag in function comment
+ 154 | ERROR | Missing @return tag in function comment
+ 161 | ERROR | Last parameter comment requires a blank newline after it
+ 161 | ERROR | Doc comment for var [ UNKNOWN ] does not match actual variable
+     |       | name $to at position 1
+ 161 | ERROR | Missing parameter name at position 1
+ 161 | ERROR | Missing comment for param "[ UNKNOWN ]" at position 1
+ 161 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+ 171 | ERROR | There must be exactly one blank line before the tags in function
+     |       | comment
+ 186 | ERROR | Opening parenthesis of a multi-line function call must be the
+     |       | last content on the line
+ 188 | ERROR | Closing parenthesis of a multi-line function call must be on a
+     |       | line by itself
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/daniel/Projects/RocketPays/SDK/src/Core/RocketException.php
+--------------------------------------------------------------------------------
+FOUND 2 ERROR(S) AFFECTING 2 LINE(S)
+--------------------------------------------------------------------------------
+ 2 | ERROR | Missing file doc comment
+ 5 | ERROR | Missing class doc comment
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/daniel/Projects/RocketPays/SDK/src/Invoice/Invoice.php
+--------------------------------------------------------------------------------
+FOUND 47 ERROR(S) AND 1 WARNING(S) AFFECTING 35 LINE(S)
+--------------------------------------------------------------------------------
+   2 | ERROR   | Missing file doc comment
+   7 | ERROR   | Missing class doc comment
+  22 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  30 | ERROR   | Missing comment for param "$invoiceNumber" at position 1
+  30 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  31 | ERROR   | Missing @return tag in function comment
+  38 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  46 | ERROR   | Missing comment for param "$invoiceDescription" at position 1
+  46 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  47 | ERROR   | Missing @return tag in function comment
+  54 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  62 | ERROR   | Missing comment for param "$invoiceCurrency" at position 1
+  62 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  63 | ERROR   | Missing @return tag in function comment
+  70 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  78 | ERROR   | Missing comment for param "$customerName" at position 1
+  78 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  79 | ERROR   | Missing @return tag in function comment
+  86 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  94 | ERROR   | Missing comment for param "$customerEmail" at position 1
+  94 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+  95 | ERROR   | Missing @return tag in function comment
+ 102 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 110 | ERROR   | Missing comment for param "$invoiceDiscounts" at position 1
+ 110 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 111 | ERROR   | Missing @return tag in function comment
+ 118 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 126 | ERROR   | Missing comment for param "$invoiceDeliveryFee" at position 1
+ 126 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 127 | ERROR   | Missing @return tag in function comment
+ 134 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 142 | ERROR   | Missing comment for param "$successUrl" at position 1
+ 142 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 143 | ERROR   | Missing @return tag in function comment
+ 150 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 158 | ERROR   | Missing comment for param "$cancelUrl" at position 1
+ 158 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 159 | ERROR   | Missing @return tag in function comment
+ 166 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 174 | ERROR   | Missing comment for param "$invoiceProducts" at position 1
+ 174 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 175 | ERROR   | Missing @return tag in function comment
+ 183 | ERROR   | Last parameter comment requires a blank newline after it
+ 183 | ERROR   | Expected 1 space before variable type
+ 183 | ERROR   | Missing comment for param "$product" at position 1
+ 183 | ERROR   | There must be exactly one blank line before the tags in
+     |         | function comment
+ 190 | WARNING | Inline control structures are discouraged
+ 195 | ERROR   | No space found after comma in function call
+--------------------------------------------------------------------------------
+
+
+FILE: /Users/daniel/Projects/RocketPays/SDK/src/Invoice/InvoiceProduct.php
+--------------------------------------------------------------------------------
+FOUND 18 ERROR(S) AFFECTING 14 LINE(S)
+--------------------------------------------------------------------------------
+  2 | ERROR | Missing file doc comment
+  5 | ERROR | Missing class doc comment
+ 14 | ERROR | There must be exactly one blank line before the tags in function
+    |       | comment
+ 22 | ERROR | Missing comment for param "$name" at position 1
+ 22 | ERROR | There must be exactly one blank line before the tags in function
+    |       | comment
+ 23 | ERROR | Missing @return tag in function comment
+ 30 | ERROR | There must be exactly one blank line before the tags in function
+    |       | comment
+ 38 | ERROR | Missing comment for param "$description" at position 1
+ 38 | ERROR | There must be exactly one blank line before the tags in function
+    |       | comment
+ 39 | ERROR | Missing @return tag in function comment
+ 46 | ERROR | There must be exactly one blank line before the tags in function
+    |       | comment
+ 54 | ERROR | Missing comment for param "$unityPrice" at position 1
+ 54 | ERROR | There must be exactly one blank line before the tags in function
+    |       | comment
+ 55 | ERROR | Missing @return tag in function comment
+ 62 | ERROR | There must be exactly one blank line before the tags in function
+    |       | comment
+ 70 | ERROR | Missing comment for param "$quantity" at position 1
+ 70 | ERROR | There must be exactly one blank line before the tags in function
+    |       | comment
+ 71 | ERROR | Missing @return tag in function comment
+--------------------------------------------------------------------------------
+

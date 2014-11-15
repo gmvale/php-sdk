@@ -74,8 +74,4 @@ class InvoiceProduct
         $this->quantity = $quantity;
     }
 
-
-
-
-	
 }

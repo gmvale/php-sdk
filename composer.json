@@ -19,6 +19,17 @@
     "ext-curl": "*",
     "ext-json": "*"
   },
+  "require-dev": {
+    "phpunit/phpunit": "4.3.*",
+    "phpunit/php-invoker": "*",
+    "phpunit/dbunit": ">=1.2",
+    "phpunit/phpunit-selenium": ">=1.2",
+    "sebastian/phpcpd": "*",
+    "phpunit/phpunit-skeleton-generator": "*",
+    "sebastian/phpdcd": "*",
+    "phploc/phploc": "*",
+    "squizlabs/php_codesniffer": "1.*"
+  },
   "autoload": {
     "psr-4": {"Rocket\\": "src/"}
   }

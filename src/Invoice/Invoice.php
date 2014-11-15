@@ -7,7 +7,6 @@ use Rocket\Core\RocketException;
 class Invoice
 {
 
-
     public $invoiceNumber;
     public $invoiceDescription;
     public $invoiceCurrency = 'USD';
@@ -181,7 +180,7 @@ class Invoice
 
     /**
      * Add a Product to the invoice
-     * @param InvoiceProduct $product
+     * @param  InvoiceProduct  $product
      * @return bool
      * @throws RocketException
      */
@@ -195,13 +194,10 @@ class Invoice
 
         $newProducts = array_merge($products,array($product));
 
-
         $this->setInvoiceProducts($newProducts);
 
         return true;
 
     }
 
-
-	
 }
