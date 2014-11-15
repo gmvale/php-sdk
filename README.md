@@ -39,9 +39,9 @@ $ php composer.phar install
     $ php composer.phar update
     ```
     
-3. How to use:
+## How to Use:
 
-    #### Send a new order:
+### Send a new order:
 
 ``` php
 <?php
@@ -85,7 +85,7 @@ use Rocket\Invoice\InvoiceProduct;
 ```
 
 
-#### Query an order:
+### Query an order:
 
 
 ``` php
