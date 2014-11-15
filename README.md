@@ -6,16 +6,15 @@ PHP SDK to Rocket API, with this SDK you can create invoices and retrieve invoic
 Instalation
 -----------
 
-### Main Setup
-
-## Without Composer;
+## Without Composer:
 Download this repository and than just include our auto load
 ``` php
     require_once (__DIR__  . '/../src/autoload.php');
  ```
 
 
-## Composer:
+## Using Composer:
+
 
 ### Install Composer:
 
@@ -24,8 +23,7 @@ $ wget http://getcomposer.org/composer.phar
 $ php composer.phar install
 ```
 
-
-#### With composer
+#### After Install:
 
 1. Add this project in your composer.json:
 
