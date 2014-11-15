@@ -8,6 +8,15 @@ Instalation
 
 ### Main Setup
 
+## Without Composer;
+Download this repository and than just include our auto load
+``` php
+    require_once (__DIR__  . '/../src/autoload.php');
+ ```
+
+
+## Composer:
+
 ### Install Composer:
 
 ``` bash

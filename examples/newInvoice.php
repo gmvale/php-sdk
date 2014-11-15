@@ -2,10 +2,13 @@
 
 require_once (__DIR__  . '/../src/autoload.php');
 
+use Rocket\Checkout\Checkout;
+use Rocket\Invoice\Invoice;
+use Rocket\Invoice\InvoiceProduct;
 
-$checkout = new \Rocket\Checkout\Checkout("NjQ1MzVDNUE2M0Y0QUI0NzU4NTQwMEFGNkU1QUZGQTdDMTZDOTJFNw==",false,true);
+$checkout = new Checkout("NjQ1MzVDNUE2M0Y0QUI0NzU4NTQwMEFGNkU1QUZGQTdDMTZDOTJFNw==",false,true);
 
-$invoice = new \Rocket\Invoice\Invoice();
+$invoice = new Invoice();
 $invoice->setCancelUrl("http://www.example.net/cancel");
 $invoice->setSuccessUrl("http://www.example.net/success");
 $invoice->setCustomerEmail("info@rocketpays.com");
@@ -16,7 +19,7 @@ $invoice->setInvoiceDiscounts("0.00");
 $invoice->setInvoiceNumber("0099203");
 $invoice->setInvoiceDescription("Test Invoice Description");
 
-$product = new \Rocket\Invoice\InvoiceProduct();
+$product = new InvoiceProduct();
 $product->setDescription("Test Purposes");
 $product->setName("Test Product");
 $product->setQuantity("10");
