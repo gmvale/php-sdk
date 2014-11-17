@@ -15,9 +15,12 @@
         <whitelist>
             <directory suffix=".php">../</directory>
             <exclude>
+                <file>../src/autoload.php</file>
                 <directory suffix=".php">./</directory>
                 <directory suffix=".php">../vendor/</directory>
+                <directory suffix=".php">../examples/</directory>
                 <directory>../vendor/</directory>
+                <directory>../examples/</directory>
             </exclude>
 
         </whitelist>

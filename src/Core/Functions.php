@@ -170,7 +170,7 @@ class Functions
     /**
      * @return bool
      */
-    protected function curlSend()
+    protected function curlSend($debug = false)
     {
 
         $curl = curl_init($this->getResourceUrl() . $this->getMethodSend());
@@ -188,6 +188,9 @@ class Functions
         ));
         $curl_response = curl_exec($curl);
         curl_close($curl);
+
+        if($debug)
+            die($curl_response);
 
 
         $this->setReturnData($curl_response);

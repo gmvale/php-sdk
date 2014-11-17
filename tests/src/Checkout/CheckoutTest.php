@@ -85,12 +85,31 @@ class CheckoutTest extends PHPUnit_Framework_TestCase
 
     }
 
-    public function testCheckInvoice()
+    public function testQueryInvoice()
     {
-        $checkout = new Checkout("QzNBNjkyRkNFOUJFNTRBMTdCNTBDOTRGRjE4ODAwRjFDNkY0QTE3QQ==", true);
-        $this->assertTrue($checkout->ckeckInvoice("a"));
+
+        $checkout = new Checkout("QzNBNjkyRkNFOUJFNTRBMTdCNTBDOTRGRjE4ODAwRjFDNkY0QTE3QQ==", FALSE, TRUE);
+        $dados = $checkout->ckeckInvoice("ff520c91fd6f01d5ba757cb9b71dc58c"); //Invoice Unique Id
+        $status = $checkout->getInvoiceStatus();
+
+        $this->assertNotEmpty($status);
+
+        $this->assertNotEmpty($dados);
+
+
 
     }
+
+    public function testQueryInvoiceError()
+    {
+
+        $this->setExpectedException('Rocket\Core\RocketException');
+
+        $checkout = new Checkout("QzNBNjkyRkNFOUJFNTRBMTdCNTBDOTRGRjE4ODAwRjFDNkY0QTE3QQ==", false, true);
+        $checkout->ckeckInvoice("88129721893712937"); //Invoice Unique Id
+
+    }
+
 
     public function testExcetionNewInvoice()
     {
@@ -154,6 +173,8 @@ class CheckoutTest extends PHPUnit_Framework_TestCase
 
         return $invoice;
     }
+
+
 
 
     public function invokePrivateMethod(&$object, $methodName, array $parameters = array())

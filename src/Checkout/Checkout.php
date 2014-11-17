@@ -75,11 +75,27 @@ class Checkout extends Functions
 
     /**
      * @param $invoice
-     * @return bool
+     * @return array
+     * @throws RocketException
      */
+
     public function ckeckInvoice($invoice)
     {
-        return true;
+        $this->setDataSend($this->makeJson(array('invoice' => $invoice)));
+        $this->setMethodSend("checkout/invoice/query/token/".$this->getToken());
+        $this->curlSend();
+
+        $retorno = $this->jsonArray($this->getReturnData());
+
+
+        if(!$retorno->success){
+            throw new RocketException($retorno->message);
+        }
+
+        $this->setInvoiceStatus($retorno->invoiceStatus);
+        $this->setInvoiceToken($retorno->invoiceId);
+
+        return $retorno;
 
     }
 
