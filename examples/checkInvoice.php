@@ -5,7 +5,7 @@ use Rocket\Checkout\Checkout;
 
 try {
 
-    $checkout = new Checkout("NjQ1MzVDNUE2M0Y0QUI0NzU4NTQwMEFGNkU1QUZGQTdDMTZDOTJFNw==", FALSE, TRUE);
+    $checkout = new Checkout("NjQ1MzVDNUE2M0Y0QUI0NzU4NTQwMEFGNkU1QUZGQTdDMTZDOTJFNw==");
     $dados = $checkout->ckeckInvoice("ff520c91fd6f01d5ba757cb9b71dc58c"); //Invoice Unique Id
     $status = $checkout->getInvoiceStatus();
 

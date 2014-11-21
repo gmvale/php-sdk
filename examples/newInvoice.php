@@ -6,7 +6,7 @@ use Rocket\Checkout\Checkout;
 use Rocket\Invoice\Invoice;
 use Rocket\Invoice\InvoiceProduct;
 
-$checkout = new Checkout("NjQ1MzVDNUE2M0Y0QUI0NzU4NTQwMEFGNkU1QUZGQTdDMTZDOTJFNw==",false,true);
+$checkout = new Checkout("NjQ1MzVDNUE2M0Y0QUI0NzU4NTQwMEFGNkU1QUZGQTdDMTZDOTJFNw==");
 
 $invoice = new Invoice();
 $invoice->setCancelUrl("http://www.example.net/cancel");
