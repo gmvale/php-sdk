@@ -28,3 +28,4 @@ nbproject
 *.skipper
 public/tests.php
 *.txt
+composer.phar
