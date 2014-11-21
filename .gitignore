@@ -27,3 +27,4 @@ nbproject
 .~lock.*
 *.skipper
 public/tests.php
+*.txt
