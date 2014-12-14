@@ -98,3 +98,18 @@ use Rocket\Checkout\Checkout;
     $status = $checkout->getInvoiceStatus();
     
 ```
+
+
+### Transfer Money:
+
+
+``` php
+<?php
+
+use Rocket\Payment\Transfer;
+
+    $transfer = new Transfer("INFORM YOU SIMPLE CHECKOUT KEY");
+    $send = $transfer->sendTransfer("user@email.com",20.00);
+    $send->getStatus();
+    
+```
