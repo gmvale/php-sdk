@@ -29,7 +29,7 @@ $ php composer.phar install
 
     ```json
     "require": {
-        "rocket-system/php-sdk": "dev-master"
+        "rocket-systems/php-sdk": "dev-master"
     }
     ```
 
